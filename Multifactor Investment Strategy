@@ -27,7 +27,7 @@ fetchhistoricaldata()
 
 def fetchfina_indicator():
     for i in range(300):
-        filename = 'your path file'.format(sharecode['sharecode'][i])
+        filename = 'your file path'.format(sharecode['sharecode'][i])
         data=api.fina_indicator(ts_code=sharecode['sharecode'][i],end_date='2019-12-31')
         if os.path.exists(filename):
             data.to_csv(filename, mode='a')
@@ -36,6 +36,21 @@ def fetchfina_indicator():
 
 fetchfina_indicator()
 
-
+def fetch_balancesheet():
+    for i in range(300):
+        filename = 'you file path'.format(sharecode['sharecode'][i])
+        data=api.balancesheet(ts_code=sharecode['sharecode'][i],end_date='2019-12-31')
+        if os.path.exists(filename):
+            data.to_csv(filename, mode='a')
+        else:
+            data.to_csv(filename, mode='a')
             
-    
+fetch_balancesheet()
+
+
+
+
+ 
+ 
+ 
+ 
